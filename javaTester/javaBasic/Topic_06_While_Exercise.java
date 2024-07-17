@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.Scanner;
 
-public class Topic_06_While_DoWhile_Exercise {
+public class Topic_06_While_Exercise {
     Scanner scanner = new Scanner(System.in);
 
     @Test
