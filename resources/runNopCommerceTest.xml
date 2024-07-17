@@ -2,9 +2,22 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="NopCommerce">
 
-    <test name="Run on Firefox">
+    <test name="Run on Chrome">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="com.nopcommerce.user.User_01_Register_Login"></class>
+            <class name="javaBasic.Topic_04_Switch_Case_Exercise"></class>
+        </classes>
+    </test>
+    <test name="Run on Firefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="javaBasic.Topic_04_Switch_Case_Exercise"></class>
+        </classes>
+    </test>
+    <test name="Run on edge">
+        <parameter name="browser" value="edge"></parameter>
+        <classes>
+            <class name="javaBasic.Topic_04_Switch_Case_Exercise"></class>
         </classes>
     </test>
 </suite>

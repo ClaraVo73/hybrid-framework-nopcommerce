@@ -3,7 +3,7 @@ package javaBasic;
 import org.testng.annotations.Test;
 import java.util.Scanner;
 
-public class Topic_03_Condition_Exercise {
+public class Topic_03_If_Else_Exercise {
     Scanner scanner = new Scanner(System.in);
 
     @Test
