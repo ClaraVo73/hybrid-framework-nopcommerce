@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="NopCommerce">
 
-    <test name="Run on Chrome">
+    <test name="Run on Firefox">
         <classes>
-            <class name="com.nopcommerce.user.Level_02_Apply_BasePage_III"></class>
+            <class name="com.nopcommerce.user.Level_03_Page_Object"></class>
         </classes>
     </test>
 </suite>
