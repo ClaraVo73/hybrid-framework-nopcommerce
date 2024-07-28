@@ -1,11 +1,12 @@
 package com.nopcommerce.user;
 
+import commons.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageObjects.HomePageObject;
 import pageObjects.RegisterPageObject;
@@ -13,27 +14,23 @@ import pageObjects.RegisterPageObject;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class Level_03_Page_Object {
+public class Level_04_Multiple_Browser extends BaseTest {
     private WebDriver driver;
     private String emailAddress, firstName, lastName, password;
-    private String projectPath = System.getProperty("user.dir");
     private HomePageObject homePage;
     private RegisterPageObject registerPage;
 
+    @Parameters("browser")
     @BeforeClass
-    public void beforeClass() {
-        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.get("https://demo.nopcommerce.com/");
+    public void beforeClass(String browserName) {
+        driver = getBrowserDriver(browserName);
 
+        homePage = new HomePageObject(driver);
+        registerPage = new RegisterPageObject(driver);
         firstName = "ngan";
         lastName = "vo";
         password = "987654321";
         emailAddress = "ara" + numberRandom() + "@mail.hn";
-
-        homePage = new HomePageObject(driver);
-        registerPage = new RegisterPageObject(driver);
     }
 
     @Test
