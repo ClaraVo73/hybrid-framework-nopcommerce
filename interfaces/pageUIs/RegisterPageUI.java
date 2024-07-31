@@ -16,7 +16,4 @@ public class RegisterPageUI {
     public static final String EXISTING_EMAIL_ERROR_MESSAGE = "//div[contains(@class,'message-error')]//li";
     public static final String VALIDATION_PASSWORD_ERROR_MESSAGE = "//span[@class='field-validation-error']";
 
-
-
-
 }

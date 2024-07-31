@@ -12,7 +12,7 @@ import pageObjects.RegisterPageObject;
 
 import java.util.Random;
 
-public class User_01_Register extends BaseTest {
+public class Level_03_Page_Object_Register extends BaseTest {
     private WebDriver driver;
     private String emailAddress, firstName, lastName, password;
     private HomePageObject homePage;
