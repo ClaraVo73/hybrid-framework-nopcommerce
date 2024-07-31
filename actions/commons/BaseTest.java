@@ -1,31 +1,30 @@
 package commons;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
-    private String projectPath = System.getProperty("user.dir");
 
-    protected WebDriver getBrowserDriver(String browserName){
-        if(browserName.equals("firefox")){
-            System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-            driver = new FirefoxDriver();
-        }else if(browserName.equals("chrome")){
-            System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
-            driver = new ChromeDriver();
-        }else if(browserName.equals("edge")){
-            System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
-            driver = new EdgeDriver();
-        }else {
-            throw new RuntimeException("Browser name valid.");
+    protected WebDriver getBrowserDriver(String browserName) {
+        if (browserName.equals("firefox")) {
+            driver = WebDriverManager.firefoxdriver().create();
+        } else if (browserName.equals("chrome")) {
+            driver = WebDriverManager.chromedriver().create();
+        } else if (browserName.equals("edge")) {
+            driver = WebDriverManager.edgedriver().create();
+        } else if (browserName.equals("opera")) {
+            driver = WebDriverManager.operadriver().create();
+        } else {
+            throw new RuntimeException("Please enter the correct Browser name.");
         }
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().maximize();
         driver.get("https://demo.nopcommerce.com/");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
 }
