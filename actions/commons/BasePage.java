@@ -6,6 +6,8 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pageObjects.*;
+import pageUIs.BasePageUI;
 
 import java.util.List;
 import java.util.Set;
@@ -305,5 +307,59 @@ public class BasePage {
         explicitWait.until(ExpectedConditions.elementToBeSelected(getByXpath(xpathLocator)));
     }
 
+    public AddressesPageObject openAddressPage(WebDriver driver){
+        waitForElementClickable(driver, BasePageUI.ADDRESS_LINK);
+        clickToElement(driver, BasePageUI.ADDRESS_LINK);
+        return PageGeneratorManager.getAddressesPage(driver);
+    }
+
+    public MyProductReviewPageObject openMyProductReviewPage(WebDriver driver){
+        waitForElementClickable(driver, BasePageUI.MY_PRODUCT_REVIEWS_LINK);
+        clickToElement(driver, BasePageUI.MY_PRODUCT_REVIEWS_LINK);
+        return PageGeneratorManager.getMyProductReviewPage(driver);
+    }
+
+    public RewardPointsPageObject openRewardPointsPage(WebDriver driver){
+        waitForElementClickable(driver, BasePageUI.MY_PRODUCT_REVIEWS_LINK);
+        clickToElement(driver, BasePageUI.MY_PRODUCT_REVIEWS_LINK);
+        return PageGeneratorManager.getRewardPointsPage(driver);
+    }
+
+    public CustomerInfoPageObject openCustomerInfoPage(WebDriver driver){
+        waitForElementClickable(driver, BasePageUI.CUSTOMER_INFO_LINK);
+        clickToElement(driver, BasePageUI.CUSTOMER_INFO_LINK);
+        return PageGeneratorManager.getCustomerInfoPage(driver);
+    }
+
     private long longTimeout = 30;
+
+    public SearchPageObject openSearchPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.SEARCH_LINK);
+        clickToElement(driver, BasePageUI.SEARCH_LINK);
+        return PageGeneratorManager.getSearchPage(driver);
+    }
+
+    public ShippingAndReturnPageObject openShippingAndReturn(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.SHIPPING_AND_RETURN_LINK);
+        clickToElement(driver, BasePageUI.SHIPPING_AND_RETURN_LINK);
+        return  PageGeneratorManager.getShippingAndReturnPage(driver);
+    }
+
+    public SiteMapPageObject openSiteMapPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.SITE_MAP_LINK);
+        clickToElement(driver, BasePageUI.SITE_MAP_LINK);
+        return  PageGeneratorManager.getSiteMapPage(driver);
+    }
+
+    public CustomerInfoPageObject openCustomerInfoPageByFooter(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.MY_ACCOUNT_FOOTER_LINK);
+        clickToElement(driver, BasePageUI.MY_ACCOUNT_FOOTER_LINK);
+        return  PageGeneratorManager.getCustomerInfoPage(driver);
+    }
+
+    public WishListHeaderPageObject openWishlistHeaderPage(WebDriver driver) {
+        waitForElementClickable(driver, BasePageUI.WISHLIST_HEADER_LINK);
+        clickToElement(driver, BasePageUI.WISHLIST_HEADER_LINK);
+        return  PageGeneratorManager.getWishLishHeaderPage(driver);
+    }
 }

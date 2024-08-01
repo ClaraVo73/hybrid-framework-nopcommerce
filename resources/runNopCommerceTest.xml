@@ -4,9 +4,7 @@
     <test name="Run on Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_Login_I"></class>
-            <class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_Login_II"></class>
-            <class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_Login_III"></class>
+            <class name="com.nopcommerce.user.Level_07_Switch_Page_Footer"></class>
         </classes>
     </test>
 
