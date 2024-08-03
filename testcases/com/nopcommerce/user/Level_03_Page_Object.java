@@ -2,13 +2,12 @@ package com.nopcommerce.user;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.UserHomePageObject;
+import pageObjects.user.UserRegisterPageObject;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +16,8 @@ public class Level_03_Page_Object {
     private WebDriver driver;
     private String emailAddress, firstName, lastName, password;
     private String projectPath = System.getProperty("user.dir");
-    private HomePageObject homePage;
-    private RegisterPageObject registerPage;
+    private UserHomePageObject homePage;
+    private UserRegisterPageObject registerPage;
 
     @BeforeClass
     public void beforeClass() {
@@ -32,8 +31,8 @@ public class Level_03_Page_Object {
         password = "987654321";
         emailAddress = "ara" + numberRandom() + "@mail.hn";
 
-        homePage = new HomePageObject(driver);
-        registerPage = new RegisterPageObject(driver);
+        homePage = new UserHomePageObject(driver);
+        registerPage = new UserRegisterPageObject(driver);
     }
 
     @Test

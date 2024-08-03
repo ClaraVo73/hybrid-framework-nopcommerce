@@ -1,26 +1,27 @@
 package com.nopcommerce.user;
 
 import commons.BaseTest;
+import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.*;
+import pageObjects.user.*;
 
 import java.util.Random;
 
 public class Level_07_Switch_Page_Footer extends BaseTest {
     private WebDriver driver;
-    private HomePageObject homePage;
-    private LoginPageObject loginPage;
-    private RegisterPageObject registerPage;
-    private SearchPageObject searchPage;
-    private ShippingAndReturnPageObject shippingAndReturnPage;
-    private SiteMapPageObject siteMapPage;
-    private CustomerInfoPageObject customerInfoPage;
-    private WishListHeaderPageObject wishlistHeaderPage;
+    private UserHomePageObject homePage;
+    private UserLoginPageObject loginPage;
+    private UserRegisterPageObject registerPage;
+    private UserSearchPageObject searchPage;
+    private UserShippingAndReturnPageObject shippingAndReturnPage;
+    private UserSiteMapPageObject siteMapPage;
+    private UserCustomerInfoPageObject customerInfoPage;
+    private UserWishListPageObject wishlistHeaderPage;
     private String emailAddress, firstName, lastName, password;
 
     @Parameters("browser")
@@ -28,7 +29,7 @@ public class Level_07_Switch_Page_Footer extends BaseTest {
     public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
 
-        homePage = PageGeneratorManager.getHomePage(driver);
+        homePage = PageGeneratorManager.getUserHomePage(driver);
 
         firstName = "ngan";
         lastName = "vo";

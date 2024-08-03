@@ -7,17 +7,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.user.UserHomePageObject;
+import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.UserRegisterPageObject;
 
 import java.util.Random;
 
 public class Level_03_Page_Object_Login extends BaseTest {
     private WebDriver driver;
-    private HomePageObject homePage;
-    private LoginPageObject loginPage;
-    private RegisterPageObject registerPage;
+    private UserHomePageObject homePage;
+    private UserLoginPageObject loginPage;
+    private UserRegisterPageObject registerPage;
     private String emailAddress, firstName, lastName, password, unregisteredEmail;
 
     @Parameters("browser")
@@ -25,9 +25,9 @@ public class Level_03_Page_Object_Login extends BaseTest {
     public void beforeClass(String browserName) {
         driver = getBrowserDriver(browserName);
 
-        homePage = new HomePageObject(driver);
-        loginPage = new LoginPageObject(driver);
-        registerPage = new RegisterPageObject(driver);
+        homePage = new UserHomePageObject(driver);
+        loginPage = new UserLoginPageObject(driver);
+        registerPage = new UserRegisterPageObject(driver);
 
         firstName = "ngan";
         lastName = "vo";
