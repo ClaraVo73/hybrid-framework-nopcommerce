@@ -26,12 +26,28 @@ public class PageGeneratorManager {
         return new UserAddressesPageObject(driver);
     }
 
+    public static UserOrdersPageObject getUserOrdersPage(WebDriver driver) {
+        return new UserOrdersPageObject(driver);
+    }
+
+    public static UserDownloadableProductsPageObject getUserDownloadableProductsPage(WebDriver driver) {
+        return new UserDownloadableProductsPageObject(driver);
+    }
+
+    public static UserBackInStockPageObject getUserBackInStockPage(WebDriver driver) {
+        return new UserBackInStockPageObject(driver);
+    }
+
     public static UserMyProductReviewPageObject getUserMyProductReviewPage(WebDriver driver) {
         return new UserMyProductReviewPageObject(driver);
     }
 
     public static UserRewardPointsPageObject getUserRewardPointsPage(WebDriver driver) {
         return new UserRewardPointsPageObject(driver);
+    }
+
+    public static UserChangePasswordPageObject getUserChangePasswordPage(WebDriver driver) {
+        return new UserChangePasswordPageObject(driver);
     }
 
     public static UserSearchPageObject getUserSearchPage(WebDriver driver) {
