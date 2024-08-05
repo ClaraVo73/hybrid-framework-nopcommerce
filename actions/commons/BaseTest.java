@@ -46,15 +46,17 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
-    private String getEnvironmentUrl(String environmentName){
+
+    private String getEnvironmentUrl(String environmentName) {
         String url = null;
-        switch (environmentName){
+        switch (environmentName) {
             case "Staging":
                 url = GlobalConstants.PORTAL_STAGING_URL;
                 break;
             case "Production":
                 url = GlobalConstants.PORTAL_STAGING_URL;
                 break;
-        } return url;
+        }
+        return url;
     }
 }

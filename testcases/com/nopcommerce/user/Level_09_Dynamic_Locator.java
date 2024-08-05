@@ -21,6 +21,9 @@ public class Level_09_Dynamic_Locator extends BaseTest {
     private UserAddressesPageObject addressPage;
     private UserMyProductReviewPageObject myProductReviewPage;
     private UserRewardPointsPageObject rewardPointsPage;
+    private UserChangePasswordPageObject changePasswordPage;
+    private UserDownloadableProductsPageObject downloadableProductsPage;
+    private UserBackInStockPageObject backInStockPage;
     private String emailAddress, firstName, lastName, password;
 
     @Parameters("browser")
@@ -37,7 +40,7 @@ public class Level_09_Dynamic_Locator extends BaseTest {
     }
 
     @Test
-    public void User_01_Register() {
+    public void User_01_Register_Login() {
         registerPage = homePage.clickToRegisterLink();
 
         registerPage.inputToFirstnameTextbox(firstName);
@@ -64,27 +67,36 @@ public class Level_09_Dynamic_Locator extends BaseTest {
 
     @Test
     public void User_02_Dynamic_Page() {
-        //Customer page to address page
         addressPage = customerInfoPage.openAddressPage(driver);
-
-        //Address page to My product review page
         myProductReviewPage = addressPage.openMyProductReviewPage(driver);
 
     }
     @Test
     public void User_03_Dynamic_Page_01() {
-        // My product review page to reward point page
-        //rewardPointsPage = myProductReviewPage.openPagesAtMyAccountByName(driver,"Reward points");
-
-        // Reward point page to Customer info page
-       // customerInfoPage = rewardPointsPage.openCustomerInfoPage(driver);
+        rewardPointsPage = (UserRewardPointsPageObject) myProductReviewPage.openPagesAtMyAccountByName(driver,"Reward points");
+        customerInfoPage = (UserCustomerInfoPageObject) rewardPointsPage.openPagesAtMyAccountByName(driver,"Customer info");
+        changePasswordPage = (UserChangePasswordPageObject) customerInfoPage.openPagesAtMyAccountByName(driver,"Change password");
+        downloadableProductsPage = (UserDownloadableProductsPageObject) changePasswordPage.openPagesAtMyAccountByName(driver,"Downloadable products");
+        backInStockPage = (UserBackInStockPageObject) downloadableProductsPage.openPagesAtMyAccountByName(driver,"Back in stock subscriptions");
     }
 
     @Test
-    public void User_04_Switch_Role() {
+    public void User_03_Dynamic_Page_02() {
+        backInStockPage.openPagesAtMyAccountPageByName(driver,"Reward points");
+        rewardPointsPage = PageGeneratorManager.getUserRewardPointsPage(driver);
 
+        rewardPointsPage.openPagesAtMyAccountPageByName(driver,"Customer info");
+        customerInfoPage = PageGeneratorManager.getUserCustomerInfoPage(driver);
+
+        customerInfoPage.openPagesAtMyAccountPageByName(driver,"Change password");
+        changePasswordPage = PageGeneratorManager.getUserChangePasswordPage(driver);
+
+        changePasswordPage.openPagesAtMyAccountPageByName(driver,"Downloadable products");
+        downloadableProductsPage = PageGeneratorManager.getUserDownloadableProductsPage(driver);
+
+        downloadableProductsPage.openPagesAtMyAccountPageByName(driver,"Back in stock subscriptions");
+        backInStockPage = PageGeneratorManager.getUserBackInStockPage(driver);
     }
-
 
     @AfterClass
     public void afterClass() {

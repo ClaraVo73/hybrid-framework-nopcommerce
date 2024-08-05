@@ -438,30 +438,37 @@ public class BasePage {
     }
 
     // Toi uu o bai hoc Level_09_Dynamic_Locator
-//    public BasePage openPagesAtMyAccountByName(WebDriver driver, String pageName) {
-//        waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_ARE, pageName);
-//        clickToElement(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_ARE, pageName);
-//        switch (pageName) {
-//            case "Customer info":
-//                return PageGeneratorManager.getUserCustomerInfoPage(driver);
-//            case "Addresses":
-//                return PageGeneratorManager.getUserAddressesPage(driver);
-//            case "Orders":
-//                return PageGeneratorManager.getUserOrdersPage(driver);
-//            case "Downloadable products":
-//                return PageGeneratorManager.getUserDownloadableProductsPage(driver);
-//            case "Back in stock subscriptions":
-//                return PageGeneratorManager.getUserBackInStockPage(driver);
-//            case "Reward points":
-//                return PageGeneratorManager.getUserRewardPointsPage(driver);
-//            case "Change password":
-//                return PageGeneratorManager.getUserChangePasswordPage(driver);
-//            case "My product reviews":
-//                return PageGeneratorManager.getUserMyProductReviewPage(driver);
-//            default:
-//                throw new RuntimeException("Invalid page name at My Account area.")
-//        }
-//    }
+    //cach1
+    public BasePage openPagesAtMyAccountByName(WebDriver driver, String pageName) {
+        waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_ARE, pageName);
+        clickToElement(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_ARE, pageName);
+        switch (pageName) {
+            case "Customer info":
+                return PageGeneratorManager.getUserCustomerInfoPage(driver);
+            case "Addresses":
+                return PageGeneratorManager.getUserAddressesPage(driver);
+            case "Orders":
+                return PageGeneratorManager.getUserOrdersPage(driver);
+            case "Downloadable products":
+                return PageGeneratorManager.getUserDownloadableProductsPage(driver);
+            case "Back in stock subscriptions":
+                return PageGeneratorManager.getUserBackInStockPage(driver);
+            case "Reward points":
+                return PageGeneratorManager.getUserRewardPointsPage(driver);
+            case "Change password":
+                return PageGeneratorManager.getUserChangePasswordPage(driver);
+            case "My product reviews":
+                return PageGeneratorManager.getUserMyProductReviewPage(driver);
+            default:
+                throw new RuntimeException("Invalid page name at My Account area.");
+        }
+    }
+
+    //cach2
+    public void openPagesAtMyAccountPageByName(WebDriver driver, String pageName) {
+        waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_ARE, pageName);
+        clickToElement(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_ARE, pageName);
+    }
 
     //Level_08_Switch_Role
     public UserHomePageObject clickToLogoutLinkAsUser(WebDriver driver) {
