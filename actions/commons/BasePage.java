@@ -380,7 +380,7 @@ public class BasePage {
         explicitWait.until(ExpectedConditions.elementToBeSelected(getByLocator(locatorType)));
     }
 
-    private long longTimeout = 30;
+    private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 
     //Toi ưu o bai hoc Level_07_Switch_Page
     public UserAddressesPageObject openAddressPage(WebDriver driver) {

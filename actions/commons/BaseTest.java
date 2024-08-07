@@ -24,7 +24,7 @@ public class BaseTest {
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().maximize();
         driver.get(GlobalConstants.PORTAL_PRODUCTION_URL);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
         return driver;
     }
 
@@ -43,7 +43,7 @@ public class BaseTest {
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().maximize();
         driver.get(getEnvironmentUrl(environmentName));
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
         return driver;
     }
 
