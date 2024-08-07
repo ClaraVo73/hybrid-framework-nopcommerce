@@ -28,7 +28,26 @@ public class BaseTest {
         return driver;
     }
 
-    protected WebDriver getBrowserDriver(String browserName, String environmentName) {
+//    protected WebDriver getBrowserDriver(String browserName, String environmentName) {
+//        if (browserName.equals("firefox")) {
+//            driver = WebDriverManager.firefoxdriver().create();
+//        } else if (browserName.equals("chrome")) {
+//            driver = WebDriverManager.chromedriver().create();
+//        } else if (browserName.equals("edge")) {
+//            driver = WebDriverManager.edgedriver().create();
+//        } else if (browserName.equals("opera")) {
+//            driver = WebDriverManager.operadriver().create();
+//        } else {
+//            throw new RuntimeException("Please enter the correct Browser name.");
+//        }
+//        driver.manage().window().setPosition(new Point(0, 0));
+//        driver.manage().window().maximize();
+//        driver.get(getEnvironmentUrl(environmentName));
+//        driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+//        return driver;
+//    }
+
+    protected WebDriver getBrowserDriver(String browserName, String appUrl) {
         if (browserName.equals("firefox")) {
             driver = WebDriverManager.firefoxdriver().create();
         } else if (browserName.equals("chrome")) {
@@ -42,12 +61,12 @@ public class BaseTest {
         }
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().maximize();
-        driver.get(getEnvironmentUrl(environmentName));
+        driver.get(appUrl);
         driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
         return driver;
     }
 
-    private String getEnvironmentUrl(String environmentName) {
+    protected String getEnvironmentUrl(String environmentName) {
         String url = null;
         switch (environmentName) {
             case "Staging":
