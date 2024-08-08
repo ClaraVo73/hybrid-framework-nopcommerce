@@ -165,12 +165,12 @@ public class BasePage {
 
     public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
         Select select = new Select(getWebElement(driver, locatorType));
-        select.selectByValue(textItem);
+        select.selectByVisibleText(textItem);
     }
 
     public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem, String... dynamicValues) {
         Select select = new Select(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)));
-        select.selectByValue(textItem);
+        select.selectByVisibleText(textItem);
     }
 
     public String getSelectedItemDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
@@ -241,15 +241,29 @@ public class BasePage {
         return getListWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).size();
     }
 
-    public void checkToDefaultCheckboxRadio(WebDriver driver, String locatorType) {
+    public void checkToDefaultCheckboxOrRadio(WebDriver driver, String locatorType) {
         WebElement element = getWebElement(driver, locatorType);
         if (!element.isSelected()) {
             element.click();
         }
     }
 
-    public void uncheckToDefaultCheckboxRadio(WebDriver driver, String locatorType) {
+    public void checkToDefaultCheckboxOrRadio(WebDriver driver, String locatorType, String... dynamicValues) {
+        WebElement element = getWebElement(driver, getDynamicXpath(locatorType, dynamicValues));
+        if (!element.isSelected()) {
+            element.click();
+        }
+    }
+
+    public void uncheckToDefaultCheckboxOrRadio(WebDriver driver, String locatorType) {
         WebElement element = getWebElement(driver, locatorType);
+        if (element.isSelected()) {
+            element.click();
+        }
+    }
+
+    public void uncheckToDefaultCheckboxOrRadio(WebDriver driver, String locatorType, String... dynamicValues) {
+        WebElement element = getWebElement(driver, getDynamicXpath(locatorType, dynamicValues));
         if (element.isSelected()) {
             element.click();
         }
@@ -283,11 +297,13 @@ public class BasePage {
         Actions action = new Actions(driver);
         action.moveToElement(getWebElement(driver, locatorType)).perform();
     }
+
     public void pressKeyToElement(WebDriver driver, String locatorType, Keys key) {
         Actions action = new Actions(driver);
         action.sendKeys(getWebElement(driver, locatorType), key).perform();
     }
-    public void pressKeyToElement(WebDriver driver, String locatorType,Keys key, String... dynamicValues) {
+
+    public void pressKeyToElement(WebDriver driver, String locatorType, Keys key, String... dynamicValues) {
         Actions action = new Actions(driver);
         action.sendKeys(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)), key).perform();
     }
