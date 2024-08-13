@@ -359,6 +359,12 @@ public class BasePage {
                 getWebElement(driver, locatorType));
     }
 
+    public boolean isImageLoaded(WebDriver driver, String locatorType, String... dynamicValues) {
+        return (boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete " +
+                        "&& typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
+                getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)));
+    }
+
     public void waitForElementVisible(WebDriver driver, String locatorType) {
         WebDriverWait explicitWait = new WebDriverWait(driver, longTimeout);
         explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locatorType)));
@@ -505,5 +511,15 @@ public class BasePage {
         waitForElementClickable(driver, BasePageUI.LOGOUT_AS_ADMIN_LINK);
         clickToElement(driver, BasePageUI.LOGOUT_AS_ADMIN_LINK);
         return PageGeneratorManager.getAdminLoginPage(driver);
+    }
+
+    public void uploadMultipleFiles(WebDriver driver, String... fileNames){
+        String filePath = GlobalConstants.UPLOAD_FILE;
+        String fullFileName = "";
+        for (String file : fileNames){
+            fullFileName = fullFileName + filePath + file + "\n";
+        }
+        fullFileName = fullFileName.trim();
+        getWebElement(driver, BasePageUI.UPLOAD_FILE).sendKeys(fullFileName);
     }
 }

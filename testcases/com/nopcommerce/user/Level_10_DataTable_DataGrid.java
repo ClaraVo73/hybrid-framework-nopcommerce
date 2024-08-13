@@ -7,15 +7,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageObjects.jQuery.HomePageObject;
-import pageObjects.jQuery.PageGeneratorManager;
+import pageObjects.jQuery.HomePageTableObject;
+import pageObjects.jQuery.PageGeneratorManagerTable;
 
 import java.util.List;
 import java.util.Random;
 
 public class Level_10_DataTable_DataGrid extends BaseTest {
     private WebDriver driver;
-    private HomePageObject homePage;
+    private HomePageTableObject homePage;
     List<String> expectedAllValues;
     List<String> actualAllValues;
 
@@ -24,7 +24,7 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
     @BeforeClass
     public void beforeClass(String browserName, String appUrl) {
         driver = getBrowserDriver(browserName, appUrl);
-        homePage = PageGeneratorManager.getHomePage(driver);
+        homePage = PageGeneratorManagerTable.getHomePage(driver);
 
     }
 
