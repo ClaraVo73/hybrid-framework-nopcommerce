@@ -84,10 +84,12 @@ public class BaseTest {
     protected boolean verifyTrue(boolean condition) {
         boolean pass = true;
         try {
+            System.out.println("passssssss");
             Assert.assertTrue(condition);
+
         } catch (Throwable e) {
             pass = false;
-
+            System.out.println("faillllllll");
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
         }

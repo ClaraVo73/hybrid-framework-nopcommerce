@@ -10,8 +10,10 @@ import pageObjects.admin.AdminLoginPageObject;
 import pageObjects.user.*;
 import pageUIs.user.BasePageUI;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class BasePage {
 
@@ -277,6 +279,27 @@ public class BasePage {
         return getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).isDisplayed();
     }
 
+    //new
+    public boolean isELementUndisplayed(WebDriver driver, String locator) {
+        overrideGlobalTimeout(driver,shortTimeout);
+        List<WebElement> elements = getListWebElement(driver,locator);
+        overrideGlobalTimeout(driver, longTimeout);
+
+        if(elements.size()==0){
+            return true;
+        }else if(elements.size() > 0 && !elements.get(0).isDisplayed()){
+            return true;
+
+        }else {
+            return false;
+        }
+    }
+
+    //new
+    public void overrideGlobalTimeout(WebDriver driver, long timeout) {
+        driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
+    }
+
     public boolean isElementEnabled(WebDriver driver, String locatorType) {
         return getWebElement(driver, locatorType).isEnabled();
     }
@@ -411,6 +434,7 @@ public class BasePage {
     }
 
     private long longTimeout = GlobalConstants.LONG_TIMEOUT;
+    private long shortTimeout = GlobalConstants.SHORT_TIMEOUT;
 
     //Toi ưu o bai hoc Level_07_Switch_Page
     public UserAddressesPageObject openAddressPage(WebDriver driver) {
@@ -513,13 +537,16 @@ public class BasePage {
         return PageGeneratorManager.getAdminLoginPage(driver);
     }
 
-    public void uploadMultipleFiles(WebDriver driver, String... fileNames){
+    //upload file
+    public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
         String filePath = GlobalConstants.UPLOAD_FILE;
         String fullFileName = "";
-        for (String file : fileNames){
+        for (String file : fileNames) {
             fullFileName = fullFileName + filePath + file + "\n";
         }
         fullFileName = fullFileName.trim();
         getWebElement(driver, BasePageUI.UPLOAD_FILE).sendKeys(fullFileName);
     }
+
+
 }

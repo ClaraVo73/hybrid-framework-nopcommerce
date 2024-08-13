@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="NopCommerce">
-    <parameter name="url" value="https://www.facebook.com/"></parameter>
+<suite name="Facebook">
     <listeners><listener class-name="commons.MethodListener"></listener></listeners>
+    <parameter name="url" value="https://www.facebook.com/"></parameter>
+
     <test name="Run on Chrome">
         <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name=""></class>
+            <class name="com.nopcommerce.user.Level_13_Undisplayed_Facebook"></class>
         </classes>
     </test>
 
