@@ -1,6 +1,8 @@
 package commons;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -10,6 +12,11 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
+    protected final Logger log;
+
+    protected BaseTest() {
+        log = LogManager.getLogger(getClass());
+    }
 
     protected WebDriver getBrowserDriver(String browserName) {
         if (browserName.equals("firefox")) {
@@ -82,41 +89,45 @@ public class BaseTest {
     }
 
     protected boolean verifyTrue(boolean condition) {
-        boolean pass = true;
+        boolean status = true;
         try {
-            System.out.println("passssssss");
             Assert.assertTrue(condition);
-
+            log.info("---------------------- Passed -----------------------");
         } catch (Throwable e) {
-            pass = false;
-            System.out.println("faillllllll");
+            status = false;
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
+            log.info("---------------------- Failed -----------------------");
         }
-        return pass;
+        return status;
     }
 
     protected boolean verifyFalse(boolean condition) {
-        boolean pass = true;
+        boolean status = true;
         try {
             Assert.assertFalse(condition);
+            log.info("---------------------- Passed -----------------------");
         } catch (Throwable e) {
-            pass = false;
+            status = false;
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
+            log.info("---------------------- Failed -----------------------");
         }
-        return pass;
+        return status;
     }
 
     protected boolean verifyEquals(Object actual, Object expected) {
-        boolean pass = true;
+        boolean status = true;
         try {
             Assert.assertEquals(actual, expected);
+            log.info("---------------------- Passed -----------------------");
         } catch (Throwable e) {
-            pass = false;
+            status = false;
             VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
             Reporter.getCurrentTestResult().setThrowable(e);
+            log.info("---------------------- Failed -----------------------");
         }
-        return pass;
+        return status;
+
     }
 }
