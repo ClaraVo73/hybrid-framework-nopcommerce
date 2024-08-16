@@ -1,0 +1,8 @@
+[16-08-2024 07:44:34.899 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - Verify_Element_Displayed - Step 01: Click on Create New Account Button
+[16-08-2024 07:44:35.072 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - Verify_Element_Displayed - Step 02: Verify Email Address Textbox show on popup
+[16-08-2024 07:44:35.574 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - ---------------------- Passed -----------------------
+[16-08-2024 07:44:35.576 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - Verify_Element_Undisplayed_In_DOM - Step 01: Verify Email Address Confirm Textbox do not show on Register form
+[16-08-2024 07:44:35.603 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - ---------------------- Passed -----------------------
+[16-08-2024 07:44:35.604 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - Verify_Element_Undisplayed_Not_In_DOM - Step 02: Click on Close Icon At Register form
+[16-08-2024 07:44:35.688 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - Verify_Element_Undisplayed_Not_In_DOM - Step 01: Verify Email Address Confirm Textbox do not show on DOM
+[16-08-2024 07:44:35.757 INFO com.nopcommerce.user.Level_14_Log_ReportNG] - ---------------------- Passed -----------------------

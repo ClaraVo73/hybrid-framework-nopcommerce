@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on Chrome"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.859">
+  <properties />
+  
+  
+            <testcase name="TC_02_Verify_Element_Undisplayed_In_DOM" time="0.029" classname="com.nopcommerce.user.Level_14_Log_ReportNG" />
+                <testcase name="TC_01_Verify_Element_Displayed" time="0.677" classname="com.nopcommerce.user.Level_14_Log_ReportNG" />
+                <testcase name="TC_03_Verify_Element_Undisplayed_Not_In_DOM" time="0.153" classname="com.nopcommerce.user.Level_14_Log_ReportNG" />
+      
+</testsuite>
