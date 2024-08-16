@@ -1,4 +1,4 @@
 package reportConfig;
 
-public class ReportNG {
+public class ReportNGListener {
 }
