@@ -18,7 +18,7 @@ public class BaseTest {
         log = LogManager.getLogger(getClass());
     }
 
-    protected WebDriver getBrowserDriver(String browserName) {
+    public WebDriver getBrowserDriver(String browserName) {
         if (browserName.equals("firefox")) {
             driver = WebDriverManager.firefoxdriver().create();
         } else if (browserName.equals("chrome")) {
@@ -56,7 +56,7 @@ public class BaseTest {
 //        return driver;
 //    }
 
-    protected WebDriver getBrowserDriver(String browserName, String appUrl) {
+    public WebDriver getBrowserDriver(String browserName, String appUrl) {
         if (browserName.equals("firefox")) {
             driver = WebDriverManager.firefoxdriver().create();
         } else if (browserName.equals("chrome")) {
