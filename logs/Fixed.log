@@ -33,3 +33,8 @@
 [16-08-2024 23:17:25.579 INFO com.nopcommerce.user.Level_15_Extent_Report_V5] - ---------------------- Passed -----------------------
 [16-08-2024 23:17:25.625 INFO com.nopcommerce.user.Level_15_Extent_Report_V5] - ---------------------- Passed -----------------------
 [16-08-2024 23:17:25.839 INFO com.nopcommerce.user.Level_15_Extent_Report_V5] - ---------------------- Failed -----------------------
+[20-08-2024 11:29:17.239 INFO com.nopcommerce.user.Level_16_Close_Browser] - ---------------------- Passed -----------------------
+[20-08-2024 11:29:17.285 INFO com.nopcommerce.user.Level_16_Close_Browser] - ---------------------- Passed -----------------------
+[20-08-2024 11:29:17.433 INFO com.nopcommerce.user.Level_16_Close_Browser] - ---------------------- Failed -----------------------
+[20-08-2024 11:29:21.066 INFO com.nopcommerce.user.Level_16_Close_Browser] - OS name = mac os x
+[20-08-2024 11:29:21.068 INFO com.nopcommerce.user.Level_16_Close_Browser] - Driver instance name = chromedriver: chrome on mac (e51b1aa16332b715a5268d1db4714b6a)
